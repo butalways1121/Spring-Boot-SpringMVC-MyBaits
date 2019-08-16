@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.DeptManage.dao.DeptDao">
+	<!-- 查询所有数据 -->
+	<select id="findAll" resultType="Dept" >
+		select * from dept;
+	</select>
+	<!-- 根据部门名称查询数据 -->
+	<select id="findByName" resultType="Dept" parameterType="String">
+		select id,name,address from dept where name=#{name};
+	</select>
+	<!-- 修改部门信息 -->
+	<select id="update" resultType="Dept" parameterType="Dept">
+		update dept set name=#{name},address=#{address} where id=#{id};
+	</select>
+	<!-- 增加部门信息 -->
+	<select id="add" resultType="Dept" parameterType="Dept">
+		insert into dept(name,address) values(#{name},#{address});
+	</select>
+	<!-- 删除部门信息 -->
+	<select id="delete" resultType="Dept" parameterType="int">
+		delete from dept where id=#{id};
+	</select>
+</mapper>
+ 
+
